@@ -59,6 +59,121 @@ button:hover { border-color: var(--primary); }
 }
 .placeholder h2 { margin-top: 0; color: var(--text); }
 
+/* ---------- Shared building blocks (Module 1) ---------- */
+:root {
+  --success: #1f8f6a;
+  --warning: #b7791f;
+}
+
+h1 { margin: 0 0 16px; font-size: 1.6rem; }
+h2 { margin: 24px 0 12px; font-size: 1.2rem; }
+
+.card {
+  padding: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+/* Forms */
+.form { display: flex; flex-direction: column; gap: 14px; max-width: 560px; }
+.form-narrow { max-width: 400px; }
+.form-group { display: flex; flex-direction: column; gap: 4px; }
+.form-group label { font-weight: 600; font-size: 0.92rem; }
+.form-hint { color: var(--muted); font-size: 0.85rem; }
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+select,
+textarea {
+  font: inherit;
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text);
+}
+textarea { min-height: 100px; resize: vertical; }
+input:focus-visible, select:focus-visible, textarea:focus-visible, button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+}
+
+.btn-primary {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+.btn-primary:hover { opacity: 0.9; border-color: var(--primary); }
+button:disabled { opacity: 0.55; cursor: not-allowed; }
+.btn-row { display: flex; flex-wrap: wrap; gap: 10px; }
+
+/* Messages */
+.alert { padding: 10px 14px; border-radius: 6px; border: 1px solid; margin-bottom: 14px; }
+.alert-error { color: var(--danger); border-color: var(--danger); background: #fdf1f0; }
+.alert-success { color: var(--success); border-color: var(--success); background: #eef9f4; }
+.alert-info { color: var(--warning); border-color: var(--warning); background: #fdf6e8; }
+.muted { color: var(--muted); }
+
+/* Badges and tags */
+.badge {
+  display: inline-block;
+  padding: 1px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.badge-kind { color: var(--primary); border-color: var(--primary); }
+.badge-pending { color: var(--warning); border-color: var(--warning); }
+.badge-approved { color: var(--success); border-color: var(--success); }
+.badge-declined { color: var(--danger); border-color: var(--danger); }
+.tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+.tag {
+  padding: 1px 8px;
+  border-radius: 6px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* Note cards */
+.note-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+.note-card {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.note-card-top { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
+.note-card-title { margin: 0 0 4px; font-size: 1.05rem; overflow-wrap: anywhere; }
+.note-card-meta { margin: 0 0 8px; color: var(--muted); font-size: 0.88rem; }
+.note-card-desc { margin: 0; font-size: 0.92rem; overflow-wrap: anywhere; }
+.note-card-footer { margin: auto 0 0; padding-top: 10px; color: var(--muted); font-size: 0.82rem; }
+
+/* Toolbars and pagination */
+.toolbar { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+.toolbar > * { flex: 1 1 160px; min-width: 0; }
+.toolbar .toolbar-wide { flex: 2 1 240px; }
+.pagination { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 20px; }
+
+/* Details page */
+.detail-meta { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; margin: 14px 0; }
+.detail-meta dt { color: var(--muted); }
+.detail-meta dd { margin: 0; overflow-wrap: anywhere; }
+.upload-list { display: flex; flex-direction: column; gap: 12px; }
+
 @media (max-width: 640px) {
   .navbar { flex-direction: column; align-items: flex-start; }
   .nav-user { flex-wrap: wrap; }

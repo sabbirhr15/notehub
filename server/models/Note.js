@@ -8,10 +8,14 @@ const noteSchema = new mongoose.Schema(
     className: { type: String, trim: true }, // "class" is a reserved word in JS, so we use className
     tags: [{ type: String, trim: true, lowercase: true }],
 
-    // File stored in GridFS
+    // Short description written by the author. Shown for free on the details page.
+    description: { type: String, required: true, trim: true, maxlength: 500 },
+
+    // File stored in GridFS (PDF, image, DOCX or PPTX)
     fileId: { type: mongoose.Schema.Types.ObjectId, required: true },
     fileName: { type: String },
     mimeType: { type: String },
+    fileSize: { type: Number },
 
     // Approval flow
     status: { type: String, enum: ["pending", "approved", "declined"], default: "pending" },

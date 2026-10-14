@@ -26,7 +26,8 @@ export const routes = [
   // FR-3
   { path: "/", element: <BrowsePage /> },
   // FR-4
-  { path: "/notes/:id", element: <NoteDetailsPage />, access: "any" },
+  // The details page is public. Like, save and download need a login and are checked on the server.
+  { path: "/notes/:id", element: <NoteDetailsPage /> },
   { path: "/saved", element: <SavedNotesPage />, access: "any" },
   // FR-5
   { path: "/review/queue", element: <ApprovalQueuePage />, access: ["reviewer", "admin"] },

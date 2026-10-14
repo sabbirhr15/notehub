@@ -20,6 +20,15 @@ function saveFile(buffer, filename, mimeType) {
   });
 }
 
+// Returns { length } for a stored file, or null if it does not exist.
+async function getFileInfo(fileId) {
+  const files = await getBucket()
+    .find({ _id: new mongoose.Types.ObjectId(fileId) })
+    .limit(1)
+    .toArray();
+  return files.length ? { length: files[0].length } : null;
+}
+
 // Returns a readable stream for a stored file.
 function openFileStream(fileId) {
   return getBucket().openDownloadStream(new mongoose.Types.ObjectId(fileId));
@@ -29,4 +38,4 @@ async function deleteFile(fileId) {
   await getBucket().delete(new mongoose.Types.ObjectId(fileId));
 }
 
-module.exports = { saveFile, openFileStream, deleteFile };
+module.exports = { saveFile, getFileInfo, openFileStream, deleteFile };

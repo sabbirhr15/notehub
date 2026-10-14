@@ -1,0 +1,44 @@
+/* FR-4: styles for the note details page and the saved notes page */
+.note-detail {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.note-detail-badges {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.note-detail-title {
+  margin-bottom: 8px;
+  overflow-wrap: anywhere;
+}
+
+.note-detail-description {
+  margin: 0 0 12px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.note-detail-summary {
+  margin: 12px 0;
+  padding: 12px 14px;
+  background: var(--bg);
+  border-radius: 8px;
+}
+
+.note-detail-summary p {
+  margin: 4px 0 0;
+  white-space: pre-wrap;
+}
+
+.saved-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.saved-item .note-card {
+  flex: 1;
+}

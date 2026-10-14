@@ -23,9 +23,25 @@ async function protect(req, res, next) {
   }
 }
 
+// For pages that anyone can open, but that show more to a logged-in user
+// (for example the note details page). Never blocks the request.
+async function optionalAuth(req, res, next) {
+  try {
+    const token = readToken(req);
+    if (token) {
+      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      const user = await User.findById(decoded.id).select("-passwordHash");
+      if (user) req.user = user;
+    }
+  } catch (err) {
+    // A bad or expired token is treated the same as being logged out.
+  }
+  next();
+}
+
 // Creates a login token that expires in 7 days.
 function signToken(userId) {
   return jwt.sign({ id: userId }, process.env.JWT_SECRET, { expiresIn: "7d" });
 }
 
-module.exports = { protect, signToken };
+module.exports = { protect, optionalAuth, signToken };

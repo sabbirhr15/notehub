@@ -1,0 +1,14 @@
+/* FR-1: styles for the login and register pages */
+.auth-page {
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.auth-page .form-narrow {
+  max-width: none;
+}
+
+.auth-switch {
+  margin: 16px 0 0;
+  font-size: 0.92rem;
+}
