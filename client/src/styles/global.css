@@ -1,0 +1,65 @@
+/* Shared base styles. Each feature can keep its own .css file in its own folder. */
+:root {
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --text: #1b2338;
+  --muted: #5b6478;
+  --border: #dde1ec;
+  --primary: #2f5bea;
+  --danger: #d9534f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container { max-width: 1040px; margin: 0 auto; padding: 24px 16px; }
+
+/* Navbar */
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+  padding: 12px 16px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.navbar .brand { font-weight: 700; font-size: 1.25rem; color: var(--text); }
+.nav-links { display: flex; flex-wrap: wrap; gap: 6px 16px; flex: 1; }
+.nav-user { display: flex; align-items: center; gap: 12px; }
+.nav-name { color: var(--muted); font-size: 0.9rem; }
+
+button {
+  font: inherit;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  cursor: pointer;
+}
+button:hover { border-color: var(--primary); }
+
+/* Placeholder used by every unbuilt feature page */
+.placeholder {
+  padding: 24px;
+  border: 2px dashed var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--muted);
+}
+.placeholder h2 { margin-top: 0; color: var(--text); }
+
+@media (max-width: 640px) {
+  .navbar { flex-direction: column; align-items: flex-start; }
+  .nav-user { flex-wrap: wrap; }
+}
