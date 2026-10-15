@@ -1,15 +1,10 @@
 // FR-2: Note Upload  (Owner: Member 2)
+// Put this feature's routes here. Split into controller.js / model files in this folder if it grows.
 const express = require("express");
-const { protect } = require("../../middleware/auth");
-const { upload, createNote, listMine } = require("./controller");
-
 const router = express.Router();
 
 router.get("/ping", (req, res) => {
-  res.json({ feature: "FR-2", name: "Note Upload", status: "ready" });
+  res.json({ feature: "FR-2", name: "Note Upload", status: "not built yet" });
 });
-
-router.post("/", protect, upload.single("file"), createNote);
-router.get("/mine", protect, listMine);
 
 module.exports = { basePath: "/api/upload", router };
