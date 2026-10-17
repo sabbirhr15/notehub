@@ -4,7 +4,7 @@
 
 ## Flow
 1. Register page posts `{name,email,password}` to `POST /api/auth/register`.
-2. Server validates (name 2-60 chars, valid email, password 6-72), rejects a duplicate email with 409, hashes the password with bcryptjs, saves the user, returns `{token,user}`.
+2. Server validates (name 2-60 chars, valid email, password 6-72 chars with at least one letter, one number and one special character), rejects a duplicate email with 409, hashes the password with bcryptjs, saves the user, returns `{token,user}`.
 3. Client stores the token via `AuthContext.login(token,user)`; axios adds `Authorization: Bearer <token>` to every request.
 4. `GET /api/auth/me` returns the current user (used to restore login after a refresh).
 5. Login does the same check and returns the same message ("Invalid email or password") for wrong email or wrong password, so nobody can find out which emails exist.

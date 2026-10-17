@@ -30,6 +30,9 @@ export default function RegisterPage() {
       return setError("Please enter a valid email address");
     }
     if (form.password.length < 6) return setError("Password must be at least 6 characters");
+    if (!/[A-Za-z]/.test(form.password) || !/[0-9]/.test(form.password) || !/[^A-Za-z0-9\s]/.test(form.password)) {
+      return setError("Password must contain at least one letter, one number and one special character");
+    }
     if (form.password !== form.confirm) return setError("The two passwords do not match");
 
     setBusy(true);
@@ -74,7 +77,7 @@ export default function RegisterPage() {
               value={form.password}
               onChange={handleChange}
             />
-            <span className="form-hint">At least 6 characters</span>
+            <span className="form-hint">At least 6 characters, with a letter, a number and a special character (for example @ # $ !)</span>
           </div>
 
           <div className="form-group">

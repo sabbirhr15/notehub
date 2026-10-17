@@ -5,6 +5,12 @@ const { signToken } = require("../../middleware/auth");
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+// A new password needs at least one letter, one number and one special character.
+// A special character is anything that is not a letter, a number or a space.
+const HAS_LETTER = /[A-Za-z]/;
+const HAS_NUMBER = /[0-9]/;
+const HAS_SPECIAL = /[^A-Za-z0-9\s]/;
+
 // The user data we send to the browser. Never includes the password hash.
 function publicUser(user) {
   return {
@@ -30,6 +36,11 @@ async function register(req, res, next) {
     }
     if (password.length < 6 || password.length > 72) {
       return res.status(400).json({ message: "Password must be between 6 and 72 characters" });
+    }
+    if (!HAS_LETTER.test(password) || !HAS_NUMBER.test(password) || !HAS_SPECIAL.test(password)) {
+      return res
+        .status(400)
+        .json({ message: "Password must contain at least one letter, one number and one special character" });
     }
 
     const existing = await User.findOne({ email });
