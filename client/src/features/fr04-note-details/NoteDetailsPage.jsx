@@ -5,6 +5,7 @@ import { Link, useLocation, useParams } from "react-router-dom";
 import api, { errorMessage } from "../../api/axios.js";
 import { useAuth } from "../../context/AuthContext.jsx";
 import { fileKindLabel, formatDate, formatSize } from "../../utils/format.js";
+import ReviewsSection from "../fr07-reviews/ReviewsSection.jsx";
 import "./notes.css";
 
 // A failed download sends its JSON error as a blob. This reads the message out of it.
@@ -216,6 +217,9 @@ export default function NoteDetailsPage() {
           </p>
         )}
       </div>
+
+      {/* FR-7: approved reviews and the review form for reviewers */}
+      {approved && <ReviewsSection noteId={id} />}
     </div>
   );
 }

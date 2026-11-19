@@ -1,0 +1,101 @@
+/* FR-7: styles for the reviews section and the My reviews page */
+.stars {
+  color: #e0a21a;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.reviews-section {
+  margin-top: 20px;
+}
+
+.reviews-summary {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.review-item {
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+}
+
+.review-item:first-of-type {
+  border-top: none;
+}
+
+.review-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 12px;
+}
+
+.review-comment {
+  margin: 6px 0 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.review-form {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  max-width: none;
+}
+
+.rating-picker {
+  display: flex;
+  gap: 6px;
+}
+
+.rating-picker button {
+  padding: 4px 12px;
+}
+
+.rating-picker button.selected {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.tabs button.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.review-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.review-card h3 {
+  margin: 0;
+  font-size: 1rem;
+  overflow-wrap: anywhere;
+}
+
+.review-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.review-actions {
+  margin-top: 4px;
+}
