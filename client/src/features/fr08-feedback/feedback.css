@@ -1,0 +1,60 @@
+/* FR-8: styles for the feedback page and the admin feedback page */
+.feedback-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.feedback-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.feedback-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+}
+
+.feedback-message {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.feedback-reply {
+  margin: 0;
+  padding: 8px 12px;
+  background: var(--bg);
+  border-radius: 8px;
+  overflow-wrap: anywhere;
+}
+
+.feedback-admin-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.feedback-admin-form select {
+  width: auto;
+}
+
+.feedback-admin-form input[type="text"] {
+  flex: 1 1 220px;
+  width: auto;
+}
+
+.badge-new { color: var(--warning); border-color: var(--warning); }
+.badge-reviewed { color: var(--primary); border-color: var(--primary); }
+.badge-resolved { color: var(--success); border-color: var(--success); }
+.badge-type { color: var(--muted); }
