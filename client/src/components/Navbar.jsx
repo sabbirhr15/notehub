@@ -25,6 +25,7 @@ export default function Navbar() {
         {user && <Link to="/my-reviews">My reviews</Link>}
         {user && <Link to="/points">Points</Link>}
         {user && <Link to="/feedback">Feedback</Link>}
+        {user && !isReviewer && <Link to="/reviewer-request">Become a reviewer</Link>}
         {isReviewer && <Link to="/review/queue">Approval queue</Link>}
         {isAdmin && <Link to="/admin/reviewers">Reviewers</Link>}
         {isAdmin && <Link to="/admin/feedback">All feedback</Link>}
